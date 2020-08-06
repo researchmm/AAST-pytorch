@@ -15,7 +15,7 @@ def Args():
                         help='Directory path to a batch of Color images')
     parser.add_argument('--out_root', type=str, default='output/',
                         help='Root directory for outputs')
-    parser.add_argument('--network', type=str, default='models/net_160000.pth')
+    parser.add_argument('--network', type=str, default='models/net_final.pth')
     parser.add_argument('--vgg', type=str, default='models/vgg_normalised.pth')
 
 
