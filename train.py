@@ -19,7 +19,7 @@ def train(args):
 
     # Device, save and log configuration
 
-    device = torch.device('cuda')
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     save_dir = Path(os.path.join(args.save_dir, args.name))
     save_dir.mkdir(exist_ok=True, parents=True)
     log_dir = Path(os.path.join(args.log_dir, args.name))
@@ -75,8 +75,8 @@ def train(args):
 
         # S3: Calculate loss
 
-        loss_ct, loss_t = network.c_s_loss(l_pred, content_l, texture_l)
-        loss_cr = network.a_loss(ab_pred, color_ab)
+        loss_ct, loss_t = network.ct_t_loss(l_pred, content_l, texture_l)
+        loss_cr = network.cr_loss(ab_pred, color_ab)
 
         loss_ctw = args.content_weight * loss_ct
         loss_tw = args.texture_weight * loss_t
@@ -94,9 +94,9 @@ def train(args):
 
         # S5: Summary loss and save subnets
 
-        writer.add_scalar('loss_ctontent', loss_ct.item(), i + 1)
+        writer.add_scalar('loss_content', loss_ct.item(), i + 1)
         writer.add_scalar('loss_texture', loss_t.item(), i + 1)
-        writer.add_scalar('loss_ctolor', loss_cr.item(), i + 1)
+        writer.add_scalar('loss_color', loss_cr.item(), i + 1)
 
         if (i + 1) % args.save_model_interval == 0 or (i + 1) == args.max_iter:
             state_dict = network.state_dict()

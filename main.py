@@ -17,6 +17,8 @@ def Args():
                         help='Root directory for outputs')
     parser.add_argument('--network', type=str, default='models/net_final.pth')
     parser.add_argument('--vgg', type=str, default='models/vgg_normalised.pth')
+    parser.add_argument('--name', default='AAST',
+                        help='Name of this model')
 
 
     # training options
@@ -24,10 +26,6 @@ def Args():
                         help='Directory to save the checkpoints')
     parser.add_argument('--log_dir', default='./logs',
                         help='Directory to save the log')
-    parser.add_argument('--name', default='AAST',
-                        help='Name of this model')
-    parser.add_argument('--n_feats', default=64, type=int,
-                        help='Num of feature dimension')
     parser.add_argument('--img_size', default=256, type=int,
                         help='Size of input img')
     parser.add_argument('--lr', type=float, default=1e-4)

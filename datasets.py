@@ -74,11 +74,10 @@ class TrainDataset(data.Dataset):
         return 'TrainDataset'
 
 class TestDataset(data.Dataset):
-    def __init__(self, root, img_size, gray_only = False, T_only = False, C_only = False):
+    def __init__(self, root, gray_only = False, T_only = False, C_only = False):
         super(TestDataset, self).__init__()
         self.root = root
         self.paths = list(Path(self.root).glob('*'))
-        self.img_size = img_size
         self.gray_only = gray_only
         self.T_only = T_only
         self.C_only = C_only

@@ -15,7 +15,7 @@ import shutil
 # Traditional Style Transfer
 def StyleTransfer(args):
     # Device and output dir
-    device = torch.device('cuda')
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     out_dir = os.path.join(args.out_root, args.name)
     Path(out_dir).mkdir(exist_ok=True, parents=True)
     ref_dir = os.path.join(out_dir, "ref")
@@ -30,8 +30,8 @@ def StyleTransfer(args):
 
     # Prepare datasets
 
-    content_dataset = TestDataset(args.content_dir, args.img_size)
-    texture_dataset = TestDataset(args.texture_dir, args.img_size)
+    content_dataset = TestDataset(args.content_dir)
+    texture_dataset = TestDataset(args.texture_dir)
     LCT = len(content_dataset)
     LT = len(texture_dataset)
 
@@ -69,7 +69,7 @@ def StyleTransfer(args):
 # Transfer Texture only
 def TextureOnly(args):
     # Device and output dir
-    device = torch.device('cuda')
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     out_dir = os.path.join(args.out_root, args.name)
     Path(out_dir).mkdir(exist_ok=True, parents=True)
     ref_dir = os.path.join(out_dir, "ref")
@@ -84,8 +84,8 @@ def TextureOnly(args):
 
     # Prepare datasets
 
-    content_dataset = TestDataset(args.content_dir, args.img_size, T_only=True)
-    texture_dataset = TestDataset(args.texture_dir, args.img_size, gray_only=True)
+    content_dataset = TestDataset(args.content_dir, T_only=True)
+    texture_dataset = TestDataset(args.texture_dir, gray_only=True)
     LCT = len(content_dataset)
     LT = len(texture_dataset)
 
@@ -123,7 +123,7 @@ def TextureOnly(args):
 # Transfer Color only
 def ColorOnly(args):
     # Device and output dir
-    device = torch.device('cuda')
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     out_dir = os.path.join(args.out_root, args.name)
     Path(out_dir).mkdir(exist_ok=True, parents=True)
     ref_dir = os.path.join(out_dir, "ref")
@@ -138,8 +138,8 @@ def ColorOnly(args):
 
     # Prepare datasets
 
-    content_dataset = TestDataset(args.content_dir, args.img_size, C_only=True)
-    color_dataset = TestDataset(args.color_dir, args.img_size)
+    content_dataset = TestDataset(args.content_dir, C_only=True)
+    color_dataset = TestDataset(args.color_dir)
     LCT = len(content_dataset)
     LCR = len(color_dataset)
 
@@ -178,7 +178,7 @@ def ColorOnly(args):
 # Transfer texture and color together
 def TextureAndColor(args):
     # Device and output dir
-    device = torch.device('cuda')
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     out_dir = os.path.join(args.out_root, args.name)
     Path(out_dir).mkdir(exist_ok=True, parents=True)
     ref_dir = os.path.join(out_dir, "ref")
@@ -193,9 +193,9 @@ def TextureAndColor(args):
 
     # Prepare datasets
 
-    content_dataset = TestDataset(args.content_dir, args.img_size)
-    texture_dataset = TestDataset(args.texture_dir, args.img_size, gray_only=True)
-    color_dataset = TestDataset(args.color_dir, args.img_size)
+    content_dataset = TestDataset(args.content_dir)
+    texture_dataset = TestDataset(args.texture_dir, gray_only=True)
+    color_dataset = TestDataset(args.color_dir)
     LCT = len(content_dataset)
     LT = len(texture_dataset)
     LCR = len(color_dataset)
@@ -241,7 +241,7 @@ def TextureAndColor(args):
 def Interpolation(args):
 
     # Device and output dir
-    device = torch.device('cuda')
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     out_dir = os.path.join(args.out_root, args.name)
     Path(out_dir).mkdir(exist_ok=True, parents=True)
     ref_dir = os.path.join(out_dir, "ref")
@@ -256,9 +256,9 @@ def Interpolation(args):
 
     # Prepare datasets
 
-    content_dataset = TestDataset(args.content_dir, args.img_size)
-    texture_dataset = TestDataset(args.texture_dir, args.img_size, gray_only=True)
-    color_dataset = TestDataset(args.color_dir, args.img_size)
+    content_dataset = TestDataset(args.content_dir)
+    texture_dataset = TestDataset(args.texture_dir, gray_only=True)
+    color_dataset = TestDataset(args.color_dir)
     LCT = len(content_dataset)
     LT = len(texture_dataset)
     LCR = len(color_dataset)
