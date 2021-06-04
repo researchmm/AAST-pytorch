@@ -84,6 +84,19 @@ python main.py --mode train --content_dir <CONTENT_DIR> --texture_dir <TEXTURE_D
 
 For more detailed configurations, please refer to `--help` option. 
 
+## Citation
+
+If you find this repo useful in your research, please consider citing the following papers:
+
+```latex
+@inproceedings{hu2020aesthetic,
+  title={Aesthetic-Aware Image Style Transfer},
+  author={Hu, Zhiyuan and Jia, Jia and Liu, Bei and Bu, Yaohua and Fu, Jianlong},
+  booktitle={Proceedings of the 28th ACM International Conference on Multimedia},
+  pages={3320--3329},
+  year={2020}
+}
+
 
 
 ## Contact
