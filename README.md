@@ -1,6 +1,6 @@
 # Aesthetic-Aware Image Style Transfer
 
-by Zhiyuan Hu and Jia Jia and Bei Liu and Yaohua Bu and Jianlong Fu
+by Zhiyuan Hu, Jia Jia, Bei Liu, Yaohua Bu and Jianlong Fu
 
 Paper link: http://hcsi.cs.tsinghua.edu.cn/Paper/Paper20/MM20-HUZHIYUAN.pdf
 
