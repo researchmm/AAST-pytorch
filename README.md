@@ -96,8 +96,7 @@ If you find this repo useful in your research, please consider citing the follow
   pages={3320--3329},
   year={2020}
 }
-
-
+```
 
 ## Contact
 
