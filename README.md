@@ -48,7 +48,7 @@ Download `vgg_normalized.pth`(required for training) and `net_final.pth`(for tes
 
 `vgg_normalized.pth`:
 
-- Google Drive: https://drive.google.com/open?id=108uza-dsmwvbW2zv-G73jtVcMU_2Nb7Y
+- Google Drive: https://drive.google.com/file/d/1YOL3eyavRvxgM0GA19mWQUSg-oofAKb1/view?usp=sharing
 
 `net_final.pth`:
 
